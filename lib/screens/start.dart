@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+// import 'package:flutter_yong_sseotni/screens/login.dart';
+import 'package:flutter_yong_sseotni/screens/signup.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -67,7 +69,12 @@ class StartPage extends StatelessWidget {
 
             // 로그인 버튼
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => const LoginPage()),
+                // );
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFF38D39F),
                 minimumSize: const Size(320, 55),
@@ -87,7 +94,12 @@ class StartPage extends StatelessWidget {
 
             // 회원가입 버튼
             OutlinedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SignUpPage()),
+                );
+              },
               style: OutlinedButton.styleFrom(
                 minimumSize: const Size(320, 55),
                 side: const BorderSide(color: Color(0xFF38D39F)),
