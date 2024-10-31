@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'screens/start.dart';
 import 'screens/signup.dart';
-// import 'screens/login.dart';
+import 'screens/login.dart';
+import 'screens/calendar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const StartPage(),
         '/signup': (context) => const SignUpPage(),
-        // '/login': (context) => const LoginPage(),
+        '/login': (context) => const LoginPage(),
+        '/calendar': (context) => const CalendarPage(),
       },
     );
   }

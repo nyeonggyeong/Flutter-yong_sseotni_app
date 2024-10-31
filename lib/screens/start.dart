@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter_yong_sseotni/screens/login.dart';
+import 'package:flutter_yong_sseotni/screens/login.dart';
 import 'package:flutter_yong_sseotni/screens/signup.dart';
 
 class MyApp extends StatelessWidget {
@@ -70,10 +70,10 @@ class StartPage extends StatelessWidget {
             // 로그인 버튼
             ElevatedButton(
               onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => const LoginPage()),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LoginPage()),
+                );
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFF38D39F),
