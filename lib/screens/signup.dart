@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_yong_sseotni/screens/start.dart';
 import 'package:http/http.dart' as http;
-//import 'dart:convert';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
 
   @override
-  _SignUpPageState createState() => _SignUpPageState();
+  SignUpPageState createState() => SignUpPageState();
 }
 
-class _SignUpPageState extends State<SignUpPage> {
-  final _formKey = GlobalKey<FormState>();
+class SignUpPageState extends State<SignUpPage> {
+  final _formKey = GlobalKey<FormState>(); // 유효성 검사
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _nicknameController = TextEditingController();
@@ -31,6 +30,8 @@ class _SignUpPageState extends State<SignUpPage> {
     try {
       final response = await http.post(url);
 
+      if (!mounted) return;
+
       if (response.statusCode == 200 || response.statusCode == 201) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('회원 가입 성공했습니다!')),
@@ -45,6 +46,7 @@ class _SignUpPageState extends State<SignUpPage> {
         );
       }
     } catch (e) {
+      if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('오류가 발생했습니다. 인터넷 연결을 확인하세요.')),
       );
@@ -182,10 +184,12 @@ class _SignUpPageState extends State<SignUpPage> {
         );
 
         if (pickedDate != null) {
-          // pickedDate가 null이 아닌 경우에만 접근
           setState(() {
+            String formattedMonth =
+                pickedDate.month.toString().padLeft(2, '0'); // 예: 11/08
+            String formattedDay = pickedDate.day.toString().padLeft(2, '0');
             _birthdateController.text =
-                '${pickedDate.year}-${pickedDate.month}-${pickedDate.day}';
+                '${pickedDate.year}-$formattedMonth-$formattedDay';
           });
         }
       },
