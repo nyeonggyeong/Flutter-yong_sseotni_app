@@ -6,10 +6,10 @@ class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  LoginPageState createState() => LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -28,12 +28,13 @@ class _LoginPageState extends State<LoginPage> {
         },
       );
 
+      if (!mounted) return;
+
       if (response.statusCode == 200) {
         // 로그인 성공
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('로그인 성공했습니다!')),
         );
-        // 로그인 성공 후 다음 페이지로 이동
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => const CalendarPage()),
@@ -45,6 +46,7 @@ class _LoginPageState extends State<LoginPage> {
         );
       }
     } catch (e) {
+      if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('오류가 발생했습니다. 인터넷 연결을 확인하세요.')),
       );
@@ -191,9 +193,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _buildKakaoLoginButton() {
     return ElevatedButton(
-      onPressed: () {
-        // 카카오 로그인 처리 로직 추가
-      },
+      onPressed: () {},
       style: ElevatedButton.styleFrom(
         backgroundColor: const Color(0xFFFAE100),
         minimumSize: const Size(double.infinity, 30),

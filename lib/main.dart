@@ -3,9 +3,10 @@ import 'screens/start.dart';
 import 'screens/signup.dart';
 import 'screens/login.dart';
 import 'screens/calendar.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 void main() {
-  runApp(const MyApp());
+  initializeDateFormatting().then((_) => runApp(const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
