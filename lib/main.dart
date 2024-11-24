@@ -16,11 +16,25 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       initialRoute: '/',
-      routes: {
-        '/': (context) => const StartPage(),
-        '/signup': (context) => const SignUpPage(),
-        '/login': (context) => const LoginPage(),
-        '/calendar': (context) => const CalendarPage(),
+      onGenerateRoute: (settings) {
+        if (settings.name == '/calendar') {
+          final args = settings.arguments as Map<String, dynamic>;
+
+          return MaterialPageRoute(
+            builder: (context) => CalendarPage(userData: args),
+          );
+        }
+
+        switch (settings.name) {
+          case '/':
+            return MaterialPageRoute(builder: (context) => const StartPage());
+          case '/signup':
+            return MaterialPageRoute(builder: (context) => const SignUpPage());
+          case '/login':
+            return MaterialPageRoute(builder: (context) => const LoginPage());
+          default:
+            return MaterialPageRoute(builder: (context) => const StartPage());
+        }
       },
     );
   }

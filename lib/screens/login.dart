@@ -1,6 +1,7 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter_yong_sseotni/screens/calendar.dart';
 import 'package:http/http.dart' as http;
+import 'calendar.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -16,8 +17,7 @@ class LoginPageState extends State<LoginPage> {
 
   Future<void> _loginUser() async {
     final url = Uri.parse(
-        'http://3.36.22.27:8080/Spring-yong_sseotni/api/user/login' // 로그인 API 주소
-        );
+        'http://3.36.22.27:8080/Spring-yong_sseotni/api/user/login'); // 로그인 API 주소
 
     try {
       final response = await http.post(
@@ -32,12 +32,15 @@ class LoginPageState extends State<LoginPage> {
 
       if (response.statusCode == 200) {
         // 로그인 성공
+        final userData = jsonDecode(response.body);
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('로그인 성공했습니다!')),
         );
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const CalendarPage()),
+          MaterialPageRoute(
+            builder: (context) => CalendarPage(userData: userData),
+          ),
         );
       } else {
         // 로그인 실패
