@@ -52,7 +52,9 @@ class CalendarPageState extends State<CalendarPage> {
 
       final response = await http.post(
         Uri.parse(apiUrl),
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }, // key1=value1&key2=value2&key3=value3
         body: body,
       );
 
@@ -65,7 +67,7 @@ class CalendarPageState extends State<CalendarPage> {
         print('Failed to save event: ${response.statusCode}, ${response.body}');
       }
     } catch (e) {
-      print('Error during API call: $e');
+      print('Error during API call: $e'); // 테스트용
     }
   }
 
@@ -207,6 +209,7 @@ class CalendarPageState extends State<CalendarPage> {
                 this.focusedDay = focusedDay;
               });
             },
+            eventLoader: _getEventsForDay,
             calendarStyle: CalendarStyle(
               isTodayHighlighted: true,
               selectedDecoration: BoxDecoration(
@@ -217,6 +220,10 @@ class CalendarPageState extends State<CalendarPage> {
               defaultTextStyle: const TextStyle(color: Colors.black),
               weekendTextStyle: const TextStyle(color: Colors.red),
               selectedTextStyle: const TextStyle(color: Colors.deepPurple),
+              markerDecoration: const BoxDecoration(
+                color: Colors.deepPurple,
+                shape: BoxShape.circle,
+              ),
             ),
             headerStyle: HeaderStyle(
               titleCentered: true,
