@@ -15,6 +15,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        fontFamily: 'Cafe24Ssurround-v2.0',
+        textTheme: const TextTheme(
+          bodyLarge: TextStyle(fontSize: 16, color: Colors.black),
+          bodyMedium: TextStyle(fontSize: 14, color: Colors.black87),
+          bodySmall: TextStyle(fontSize: 12, color: Colors.black54),
+          titleLarge: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+      ),
       initialRoute: '/',
       onGenerateRoute: (settings) {
         if (settings.name == '/calendar') {
