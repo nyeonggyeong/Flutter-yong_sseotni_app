@@ -58,69 +58,78 @@ class LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('로그인'),
-      ),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Form(
-            key: _formKey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                const SizedBox(height: 60),
-                Stack(
-                  clipBehavior: Clip.none,
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('로그인'),
+        ),
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.only(
+                left: 16.0,
+                right: 16.0,
+                bottom: MediaQuery.of(context).viewInsets.bottom,
+              ),
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
+                    const SizedBox(height: 60),
+                    Stack(
+                      clipBehavior: Clip.none,
+                      children: [
+                        const Text(
+                          '용썼니',
+                          style: TextStyle(
+                            fontSize: 35,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xFF12BC4C),
+                          ),
+                        ),
+                        Positioned(
+                          right: -85,
+                          top: -60,
+                          child: Image.asset(
+                            'assets/yong_image.png',
+                            height: 70,
+                            width: 140,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 100),
+                    const Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        '로그인',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    _buildEmailField(),
+                    const SizedBox(height: 15),
+                    _buildPasswordField(),
+                    const SizedBox(height: 20),
+                    _buildLoginButton(),
+                    const SizedBox(height: 20),
                     const Text(
-                      '용썼니',
+                      '또는',
                       style: TextStyle(
-                        fontSize: 35,
-                        fontWeight: FontWeight.w600,
-                        color: Color(0xFF12BC4C),
+                        fontSize: 14,
+                        color: Colors.grey,
                       ),
                     ),
-                    Positioned(
-                      right: -85,
-                      top: -85,
-                      child: Image.asset(
-                        'assets/yong_image.png',
-                        height: 130,
-                        width: 130,
-                      ),
-                    ),
+                    const SizedBox(height: 20),
+                    _buildKakaoLoginButton(),
                   ],
                 ),
-                const SizedBox(height: 120),
-                const Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    '로그인',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 20),
-                _buildEmailField(),
-                const SizedBox(height: 15),
-                _buildPasswordField(),
-                const SizedBox(height: 20),
-                _buildLoginButton(),
-                const SizedBox(height: 20),
-                const Text(
-                  '또는',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.grey,
-                  ),
-                ),
-                const SizedBox(height: 20),
-                _buildKakaoLoginButton(),
-              ],
+              ),
             ),
           ),
         ),
@@ -177,7 +186,7 @@ class LoginPageState extends State<LoginPage> {
         }
       },
       style: ElevatedButton.styleFrom(
-        backgroundColor: const Color(0xFF12BC4C),
+        backgroundColor: const Color(0xFF38D39F),
         minimumSize: const Size(double.infinity, 30),
         padding: const EdgeInsets.symmetric(vertical: 15),
         shape: RoundedRectangleBorder(
