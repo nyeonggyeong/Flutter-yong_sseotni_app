@@ -41,29 +41,37 @@ class StartPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 70),
-            Stack(
-              alignment: Alignment.center,
-              children: [
-                CircleAvatar(
-                  radius: 160,
-                  backgroundColor: Colors.white,
-                  child: Image.asset(
-                    'assets/yong_image.png',
-                    fit: BoxFit.contain, // 150*2
-                  ),
-                ),
-                const Positioned(
-                  bottom: 20,
-                  child: Text(
-                    '안녕하세용!',
-                    style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
+            Container(
+              width: 320,
+              height: 320,
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                shape: BoxShape.circle,
+              ),
+              child: CircleAvatar(
+                radius: 160,
+                backgroundColor: Colors.white,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      'assets/yong_image.png',
+                      fit: BoxFit.contain,
+                      width: 170, // 이미지 너비
+                      height: 170, // 이미지 높이
                     ),
-                  ),
+                    const Text(
+                      '안녕하세용!',
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
             const SizedBox(height: 70),
 
@@ -102,7 +110,9 @@ class StartPage extends StatelessWidget {
               },
               style: OutlinedButton.styleFrom(
                 minimumSize: const Size(320, 55),
-                side: const BorderSide(color: Color(0xFF38D39F)),
+                backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+                side:
+                    const BorderSide(color: Color.fromARGB(255, 255, 255, 255)),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
