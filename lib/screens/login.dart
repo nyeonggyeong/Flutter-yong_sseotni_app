@@ -100,7 +100,7 @@ class LoginPageState extends State<LoginPage> {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 100),
+                    const SizedBox(height: 140),
                     const Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
