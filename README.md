@@ -1,22 +1,59 @@
 # flutter_yong_sseotni
+A budgeting app for students 💰
 
-돈 관리가 힘든 학생들을 위한 어플
+## Contributors ♥️ 
 
-## 커밋 메시지
+**Frontend**: [Nyeonggyeong Song](https://github.com/nyeonggyeong)  
+**Backend**: [Nahyun Kim](https://github.com/Comets-nana)
 
-| 이름              | 내용                                          |
-|------------------|-----------------------------------------------|
-| Feat             | 새로운 기능을 추가할 경우                    |
-| Fix              | 버그를 고친 경우                              |
-| Design           | CSS 등 사용자 UI 디자인 변경                  |
-| !BREAKING CHANGE | 커다란 API 변경의 경우                        |
-| !HOTFIX          | 급하게 치명적인 버그를 고쳐야 하는 경우     |
-| Style            | 코드 포맷 변경, 세미 콜론 누락, 코드 수정이 없는 경우 |
-| Refactor         | 프로덕션 코드 리팩토링                        |
-| Comment          | 필요한 주석 추가 및 변경                     |
-| Docs             | 문서를 수정한 경우                            |
-| Test             | 테스트 추가, 테스트 리팩토링(프로덕션 코드 변경 X) |
-| Chore            | 빌드 테스트 업데이트, 패키지 매니저를 설정하는 경우 (프로덕션 코드 변경 X) |
-| Rename           | 파일 혹은 폴더명을 수정하거나 옮기는 작업만인 경우 |
-| Remove           | 파일을 삭제하는 작업만 수행한 경우           |
+## Stacks⚔️
 
+### Environment
+![VSCode](https://img.shields.io/badge/VSCode-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
+
+### Development
+![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
+![MariaDB](https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white)
+
+### Communication & Docs
+![Notion](https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white)
+![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
+
+
+## Key Features ⭐
+
+### 1. Login & Sign Up (로그인 & 회원가입) 
+Users can sign up with their email and password, and securely log into the app to manage their personal finance.
+
+<img src="./assets/start_page.png" width="220"/><img src="./assets/login_page.png" width="220"/><img src="./assets/login_signup_page.png" width="220"/>
+
+---
+
+### 2. Calendar(캘린더)  
+A calendar view where users can track their daily expenses and incomes. It helps visualize spending habits over time.
+
+<img src="./assets/calendar_page.png" width="220"/>
+
+---
+
+### 3. Community(커뮤니티)  
+A space for students to share tips, ask questions, and communicate about how to save or manage money better.
+
+<img src="./assets/community_page.png" width="220"/>
+
+---
+
+### 4. Spending Pattern(지출 패턴)  
+This section shows analytics on spending behavior, helping users identify where they spend the most and discover ways to save.
+
+<img src="./assets/spending_pattern_page1.png" width="220"/> <img src="./assets/spending_pattern_page2.png" width="220"/> <img src="./assets/spending_pattern_page3.png" width="220"/>
+
+---
+## Architecture 🗂️ 
+This diagram shows the overall system architecture, including the frontend, backend, and database interactions.
+
+<img src="./assets/architecture.png" width="900"/>
